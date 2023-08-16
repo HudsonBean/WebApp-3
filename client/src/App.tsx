@@ -5,13 +5,14 @@ import { Home } from "./Pages/Home";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { store } from "./store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <Provider store={}>
+    <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" Component={Home} />
