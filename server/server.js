@@ -16,6 +16,30 @@ mongoose.connect(process.env.DATABASE_URL, {
 app.listen(process.env.PORT);
 
 //Models
-
+const todoList = require("./models/todoList");
 //Routing
 //todos
+//GET
+app.get("/todos", async (req, res) => {
+  //Get data
+  const data = await todoList.find();
+  //Response
+  res.json({ todoLists: data });
+});
+app.get("/todos/:id", async (req, res) => {
+  //Get data
+  const data = todoList.findById(req.params.id);
+  //Response
+  res.json({ todoLists: data });
+});
+//POST
+app.post("/todos/new", (req, res) => {
+  //Post data
+  const data = new todoList({
+    name: "",
+    date: new Date(),
+    todos: [],
+  });
+  //Response
+  res.json({ todoLists: data });
+});

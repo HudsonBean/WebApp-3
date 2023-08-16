@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const todoList = new Schema({
+const todoListSchema = new Schema({
   name: {
     type: String,
   },
@@ -13,3 +13,7 @@ const todoList = new Schema({
     type: Array,
   },
 });
+
+const todoList = mongoose.model("todoList", todoListSchema);
+
+module.exports = todoList;
