@@ -1,1 +1,22 @@
-GET http://localhost:8080/todos
+GET http://localhost:8080/todos/
+
+###
+
+GET http://localhost:8080/todos/64df8844777d816d1d61ab8d
+
+###
+
+POST http://localhost:8080/todos/new
+Content-Type: application/json
+
+###
+
+PATCH http://localhost:8080/todos/update/64df8844777d816d1d61ab8d
+Content-Type: application/json
+
+{
+    "name":"test0",
+    "todos": [
+        {"content": "Get the milk.", "id":0}
+    ]
+}

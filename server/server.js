@@ -28,7 +28,7 @@ app.get("/todos", async (req, res) => {
 });
 app.get("/todos/:id", async (req, res) => {
   //Get data
-  const data = todoList.findById(req.params.id);
+  const data = await todoList.findById(req.params.id);
   //Response
   res.json({ todoLists: data });
 });
@@ -47,7 +47,7 @@ app.post("/todos/new", (req, res) => {
 //PATCH
 app.patch("/todos/update/:id", async (req, res) => {
   //Patch data
-  const data = todoList.findByIdAndUpdate(req.params.id, {
+  const data = await todoList.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
     todos: req.body.todos,
   });
