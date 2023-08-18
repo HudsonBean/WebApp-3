@@ -40,6 +40,17 @@ app.post("/todos/new", (req, res) => {
     date: new Date(),
     todos: [],
   });
+  data.save();
   //Response
+  res.json({ todoLists: data });
+});
+//PATCH
+app.patch("/todos/update/:id", async (req, res) => {
+  //Patch data
+  const data = todoList.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    todos: req.body.todos,
+  });
+  //Patch data
   res.json({ todoLists: data });
 });
