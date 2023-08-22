@@ -7,7 +7,10 @@ export const api = createApi({
     getAllTodos: builder.query<Object, undefined>({
       query: () => "/todos",
     }),
+    getTodoList: builder.query<String, String>({
+      query: (id: String) => `/todos/${id}`,
+    }),
   }),
 });
 
-export const { useGetAllTodosQuery } = api;
+export const { useGetAllTodosQuery, useGetTodoListQuery } = api;

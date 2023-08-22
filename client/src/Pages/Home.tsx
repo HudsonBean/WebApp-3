@@ -1,8 +1,12 @@
 import React from "react";
-import { useGetAllTodosQuery } from "../Features/apiSlice";
+import { useGetTodoListQuery } from "../Features/apiSlice";
+const id = "64df8844777d816d1d61ab8d";
 
 export const Home = () => {
-  const { data, error, isLoading } = useGetAllTodosQuery(undefined);
+  const { data, error, isLoading } = useGetTodoListQuery(
+    "64df8844777d816d1d61ab8d",
+    undefined
+  );
   console.log(data, error, isLoading);
   return <div>Home</div>;
 };
