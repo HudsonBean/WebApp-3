@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { listOfLists } from "../types";
 
 export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8080" }),
   endpoints: (builder) => ({
-    getAllTodos: builder.query<Object, undefined>({
+    getAllTodos: builder.query<listOfLists, undefined>({
       query: () => "/todos",
     }),
     getTodoList: builder.query<String, String>({
